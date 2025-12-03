@@ -4,6 +4,8 @@ def max_joltage(bank: str) -> int:
     Picks exactly 2 batteries at positions i < j to form the 2-digit
     number digit[i] * 10 + digit[j].
 
+    Single pass from right to left, O(1) space.
+
     Args:
         bank: String of digits representing battery joltage ratings
 
@@ -14,19 +16,14 @@ def max_joltage(bank: str) -> int:
     if n < 2:
         return 0
 
-    # Compute suffix_max[i] = max digit from position i to end
-    suffix_max = [0] * n
-    suffix_max[n - 1] = int(bank[n - 1])
-    for i in range(n - 2, -1, -1):
-        suffix_max[i] = max(int(bank[i]), suffix_max[i + 1])
-
-    # For each valid first position, compute the best 2-digit number
     best = 0
-    for i in range(n - 1):
-        first_digit = int(bank[i])
-        second_digit = suffix_max[i + 1]
-        joltage = first_digit * 10 + second_digit
-        best = max(best, joltage)
+    max_second = 0  # max digit seen so far (scanning right to left)
+
+    for i in range(n - 1, -1, -1):
+        digit = int(bank[i])
+        if i < n - 1:  # can use this as first digit (there's something after)
+            best = max(best, digit * 10 + max_second)
+        max_second = max(max_second, digit)
 
     return best
 
