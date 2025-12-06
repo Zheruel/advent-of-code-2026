@@ -5,6 +5,10 @@ from aoc.day02.parser import parse_ranges
 from aoc.day02.solver import solve_part1 as solve_day02_part1, solve_part2 as solve_day02_part2
 from aoc.day03.parser import parse_banks
 from aoc.day03.solver import solve_part1 as solve_day03_part1, solve_part2 as solve_day03_part2
+from aoc.day05.parser import parse_inventory
+from aoc.day05.solver import solve_part1 as solve_day05_part1, solve_part2 as solve_day05_part2
+from aoc.day06.parser import parse_worksheet, parse_worksheet_part2
+from aoc.day06.solver import solve_part1 as solve_day06_part1, solve_part2 as solve_day06_part2
 
 
 def main():
@@ -36,6 +40,25 @@ def main():
     part1 = solve_day03_part1(banks)
     print(f"  Part 1: {part1}")
     part2 = solve_day03_part2(banks)
+    print(f"  Part 2: {part2}")
+
+    # Day 5
+    print("\nDay 5: Cafeteria")
+    input_text = read_input(5)
+    ranges, ingredient_ids = parse_inventory(input_text)
+    part1 = solve_day05_part1(ranges, ingredient_ids)
+    print(f"  Part 1: {part1}")
+    part2 = solve_day05_part2(ranges, ingredient_ids)
+    print(f"  Part 2: {part2}")
+
+    # Day 6
+    print("\nDay 6: Trash Compactor")
+    input_text = read_input(6)
+    problems = parse_worksheet(input_text)
+    part1 = solve_day06_part1(problems)
+    print(f"  Part 1: {part1}")
+    problems_p2 = parse_worksheet_part2(input_text)
+    part2 = solve_day06_part2(problems_p2)
     print(f"  Part 2: {part2}")
 
 
