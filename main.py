@@ -9,6 +9,8 @@ from aoc.day05.parser import parse_inventory
 from aoc.day05.solver import solve_part1 as solve_day05_part1, solve_part2 as solve_day05_part2
 from aoc.day06.parser import parse_worksheet, parse_worksheet_part2
 from aoc.day06.solver import solve_part1 as solve_day06_part1, solve_part2 as solve_day06_part2
+from aoc.day07.parser import parse_manifold
+from aoc.day07.solver import solve_part1 as solve_day07_part1, solve_part2 as solve_day07_part2
 
 
 def main():
@@ -59,6 +61,15 @@ def main():
     print(f"  Part 1: {part1}")
     problems_p2 = parse_worksheet_part2(input_text)
     part2 = solve_day06_part2(problems_p2)
+    print(f"  Part 2: {part2}")
+
+    # Day 7
+    print("\nDay 7: Laboratories")
+    input_text = read_input(7)
+    grid, start_col = parse_manifold(input_text)
+    part1 = solve_day07_part1(grid, start_col)
+    print(f"  Part 1: {part1}")
+    part2 = solve_day07_part2(grid, start_col)
     print(f"  Part 2: {part2}")
 
 
