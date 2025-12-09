@@ -11,6 +11,10 @@ from aoc.day06.parser import parse_worksheet, parse_worksheet_part2
 from aoc.day06.solver import solve_part1 as solve_day06_part1, solve_part2 as solve_day06_part2
 from aoc.day07.parser import parse_manifold
 from aoc.day07.solver import solve_part1 as solve_day07_part1, solve_part2 as solve_day07_part2
+from aoc.day08.parser import parse_junctions
+from aoc.day08.solver import solve_part1 as solve_day08_part1, solve_part2 as solve_day08_part2
+from aoc.day09.parser import parse_tiles
+from aoc.day09.solver import solve_part1 as solve_day09_part1, solve_part2 as solve_day09_part2
 
 
 def main():
@@ -70,6 +74,24 @@ def main():
     part1 = solve_day07_part1(grid, start_col)
     print(f"  Part 1: {part1}")
     part2 = solve_day07_part2(grid, start_col)
+    print(f"  Part 2: {part2}")
+
+    # Day 8
+    print("\nDay 8: Playground")
+    input_text = read_input(8)
+    junctions = parse_junctions(input_text)
+    part1 = solve_day08_part1(junctions)
+    print(f"  Part 1: {part1}")
+    part2 = solve_day08_part2(junctions)
+    print(f"  Part 2: {part2}")
+
+    # Day 9
+    print("\nDay 9: Movie Theater")
+    input_text = read_input(9)
+    tiles = parse_tiles(input_text)
+    part1 = solve_day09_part1(tiles)
+    print(f"  Part 1: {part1}")
+    part2 = solve_day09_part2(tiles)
     print(f"  Part 2: {part2}")
 
 
