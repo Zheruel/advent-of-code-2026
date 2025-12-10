@@ -15,6 +15,8 @@ from aoc.day08.parser import parse_junctions
 from aoc.day08.solver import solve_part1 as solve_day08_part1, solve_part2 as solve_day08_part2
 from aoc.day09.parser import parse_tiles
 from aoc.day09.solver import solve_part1 as solve_day09_part1, solve_part2 as solve_day09_part2
+from aoc.day10.parser import parse_input as parse_day10_input
+from aoc.day10.solver import solve_part1 as solve_day10_part1, solve_part2 as solve_day10_part2
 
 
 def main():
@@ -92,6 +94,15 @@ def main():
     part1 = solve_day09_part1(tiles)
     print(f"  Part 1: {part1}")
     part2 = solve_day09_part2(tiles)
+    print(f"  Part 2: {part2}")
+
+    # Day 10
+    print("\nDay 10: Factory")
+    input_text = read_input(10)
+    machines = parse_day10_input(input_text)
+    part1 = solve_day10_part1(machines)
+    print(f"  Part 1: {part1}")
+    part2 = solve_day10_part2(machines)
     print(f"  Part 2: {part2}")
 
 
