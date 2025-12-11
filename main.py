@@ -17,6 +17,8 @@ from aoc.day09.parser import parse_tiles
 from aoc.day09.solver import solve_part1 as solve_day09_part1, solve_part2 as solve_day09_part2
 from aoc.day10.parser import parse_input as parse_day10_input
 from aoc.day10.solver import solve_part1 as solve_day10_part1, solve_part2 as solve_day10_part2
+from aoc.day11.parser import parse_devices
+from aoc.day11.solver import solve_part1 as solve_day11_part1, solve_part2 as solve_day11_part2
 
 
 def main():
@@ -103,6 +105,15 @@ def main():
     part1 = solve_day10_part1(machines)
     print(f"  Part 1: {part1}")
     part2 = solve_day10_part2(machines)
+    print(f"  Part 2: {part2}")
+
+    # Day 11
+    print("\nDay 11: Reactor")
+    input_text = read_input(11)
+    graph = parse_devices(input_text)
+    part1 = solve_day11_part1(graph)
+    print(f"  Part 1: {part1}")
+    part2 = solve_day11_part2(graph)
     print(f"  Part 2: {part2}")
 
 
